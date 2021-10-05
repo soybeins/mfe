@@ -1,5 +1,5 @@
 import React, { useRef, useEffect} from "react";
-import { mount as marketingMount } from 'marketing/MarketingApp';
+import { mount as authMount } from 'auth/AuthApp';
 import { useHistory } from "react-router-dom";
 
 export default () => {
@@ -7,9 +7,9 @@ export default () => {
     const history = useHistory();
 
     useEffect(()=> {
-       const {onParentNavigate} = marketingMount(ref.current,{
-            initialPath: history.location.pathname,
-            onNavigate: ({ pathname: nextPathname }) => {
+       const {onParentNavigate} = authMount(ref.current,{
+        initialPath: history.location.pathname,    
+        onNavigate: ({ pathname: nextPathname }) => {
                 const {pathname} = history.location;
 
                 if(pathname !== nextPathname){
